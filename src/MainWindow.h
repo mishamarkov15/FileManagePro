@@ -1,13 +1,31 @@
-//
-// Created by Михаил Марков on 17/08/2023.
-//
-
 #ifndef FILEMANAGEPRO_MAINWINDOW_H
 #define FILEMANAGEPRO_MAINWINDOW_H
 
+#include "TextFilePreview.h"
+#include <QMainWindow>
+#include <QGridLayout>
+#include <QWidget>
 
-class MainWindow {
 
+class MainWindow : public QMainWindow {
+Q_OBJECT;
+public:
+    explicit MainWindow(QWidget *parent = nullptr);
+
+private:
+    void initLayout();
+
+    void initStyles();
+
+    void initWidgets();
+
+    void initConnections();
+
+    QWidget *centralWidget;
+    QWidget *left;
+    TextFilePreview *right;
+
+    QGridLayout *mainLayout;
 };
 
 
