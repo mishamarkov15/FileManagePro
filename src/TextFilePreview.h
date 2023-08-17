@@ -5,12 +5,29 @@
 #ifndef FILEMANAGEPRO_TEXTFILEPREVIEW_H
 #define FILEMANAGEPRO_TEXTFILEPREVIEW_H
 
+#include <QWidget>
+#include <QLabel>
+#include <QGridLayout>
+#include <QTextEdit>
 
+class TextFilePreview : public QWidget {
+Q_OBJECT;
+public:
+    explicit TextFilePreview(QWidget *parent = nullptr);
 
-class TextFilePreview {
+private:
+    void initLayout();
 
+    void initStyles();
+
+    void initWidgets();
+
+    void initConnections();
+
+    QGridLayout *mainLayout;
+    QLabel *filenameTitle;
+    QTextEdit *content;
 };
-
 
 
 #endif //FILEMANAGEPRO_TEXTFILEPREVIEW_H
