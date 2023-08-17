@@ -2,9 +2,11 @@
 #define FILEMANAGEPRO_MAINWINDOW_H
 
 #include "TextFilePreview.h"
+#include "FileStorage.h"
 #include <QMainWindow>
 #include <QGridLayout>
 #include <QWidget>
+#include <QSplitter>
 
 
 class MainWindow : public QMainWindow {
@@ -22,10 +24,11 @@ private:
     void initConnections();
 
     QWidget *centralWidget;
-    QWidget *left;
+    FileStorage *left;
     TextFilePreview *right;
 
     QGridLayout *mainLayout;
+    QSplitter *splitter;
 };
 
 

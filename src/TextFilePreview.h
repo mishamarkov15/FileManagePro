@@ -9,11 +9,17 @@
 #include <QLabel>
 #include <QGridLayout>
 #include <QTextEdit>
+#include <QPushButton>
+#include <QFile>
+#include <QMessageBox>
 
 class TextFilePreview : public QWidget {
 Q_OBJECT;
 public:
     explicit TextFilePreview(QWidget *parent = nullptr);
+
+public slots:
+    void displayTextContent();
 
 private:
     void initLayout();

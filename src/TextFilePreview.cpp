@@ -29,8 +29,29 @@ void TextFilePreview::initStyles() {
 
 void TextFilePreview::initWidgets() {
     filenameTitle->setText("click button to preview file");
+    filenameTitle->setAlignment(Qt::AlignCenter);
+
+    content->setReadOnly(true);
 }
 
 void TextFilePreview::initConnections() {
 
+}
+
+void TextFilePreview::displayTextContent() {
+    auto* senderButton = dynamic_cast<QPushButton*>(sender());
+
+    QFile file(senderButton->text());
+
+    filenameTitle->setText(file.fileName());
+
+    if(!file.open(QIODevice::ReadOnly)) {
+        QMessageBox::information(0, "error", file.errorString());
+    }
+
+    QTextStream in(&file);
+
+    content->setText(in.readAll());
+
+    file.close();
 }
