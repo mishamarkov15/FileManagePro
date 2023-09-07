@@ -13,7 +13,7 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(FileManagePro main.cpp src/MainWindow.cpp src/MainWindow.h src/TextFilePreview.cpp src/TextFilePreview.h src/FileStorage.cpp src/FileStorage.h)
+add_executable(FileManagePro main.cpp src/MainWindow.cpp headers/MainWindow.h src/TextFilePreview.cpp headers/TextFilePreview.h src/FileStorage.cpp headers/FileStorage.h)
 target_link_libraries(FileManagePro
         Qt::Core
         Qt::Gui
