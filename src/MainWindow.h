@@ -15,6 +15,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
 
 public slots:
+
     void changeRightWidget();
 
 private:
@@ -28,7 +29,7 @@ private:
 
     QWidget *centralWidget;
     FileStorage *left;
-    TextFilePreview *right;
+    QWidget *right;
 
     QGridLayout *mainLayout;
     QSplitter *splitter;
@@ -38,8 +39,17 @@ private:
 
 namespace extensions {
     const QVector<QString> TEXT_EXTENSIONS = {"cpp", "h", "py", "js", "html", "css", "txt", "md"};
+    const QVector<QString> IMAGE_EXTENSIONS = {"jpg", "jpeg", "png", "bmp", "heic", "webp", "svg"};
+    const QVector<QString> AUDIO_EXTENSIONS = {"mp3", "wav"};
+    const QVector<QString> VIDEO_EXTENSIONS = {"mp4", "mov", "mpeg", "mpg"};
 
-    bool isText(const QString& filepath);
+    bool isText(const QString &filepath);
+
+    bool isImage(const QString &filepath);
+
+    bool isAudio(const QString &filepath);
+
+    bool isVideo(const QString &filepath);
 };
 
 

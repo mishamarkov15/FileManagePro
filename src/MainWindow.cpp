@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
         centralWidget(new QWidget()),
         left(new FileStorage()),
-        right(new TextFilePreview()),
+        right(new QWidget()),
         mainLayout(new QGridLayout()),
         splitter(new QSplitter()) {
     initWidgets();
@@ -43,8 +43,19 @@ void MainWindow::previewText() {
 void MainWindow::changeRightWidget() {
     auto filepath = left->model->filePath(left->view->currentIndex());
     if (extensions::isText(filepath)) {
-        QDebug d(QtMsgType::QtInfoMsg);
-        d << "I'm text!\n";
+        delete right;
+        right = new TextFilePreview();
+        splitter->addWidget(right);
+    } else if (extensions::isImage(filepath)) {
+
+    } else if (extensions::isAudio(filepath)) {
+
+    } else if (extensions::isVideo(filepath)) {
+
+    } else {
+        delete right;
+        right = new QWidget();
+        splitter->addWidget(right);
     }
 }
 
@@ -54,3 +65,17 @@ bool extensions::isText(const QString &filepath) {
     return TEXT_EXTENSIONS.contains(fileInfo.suffix());
 }
 
+bool extensions::isImage(const QString &filepath) {
+    QFileInfo fileInfo(filepath);
+    return IMAGE_EXTENSIONS.contains(fileInfo.suffix());
+}
+
+bool extensions::isAudio(const QString &filepath) {
+    QFileInfo fileInfo(filepath);
+    return AUDIO_EXTENSIONS.contains(fileInfo.suffix());
+}
+
+bool extensions::isVideo(const QString &filepath) {
+    QFileInfo fileInfo(filepath);
+    return VIDEO_EXTENSIONS.contains(fileInfo.suffix());
+}
