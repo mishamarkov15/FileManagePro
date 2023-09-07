@@ -13,10 +13,26 @@
 
 const QString RootDirectoryPath("/Users/mikhaiil/.EgorFileManager/");
 
+class MyTree : public QTreeView {
+Q_OBJECT;
+public:
+    void setModel(QAbstractItemModel *model) override {
+        QTreeView::setModel(model);
+    }
+
+signals:
+
+    void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected) override;
+};
+
 class FileStorage : public QWidget {
 Q_OBJECT;
 public:
     explicit FileStorage(QWidget *parent = nullptr);
+
+public:
+    MyTree *view;
+    QFileSystemModel *model;
 
 private:
     void initLayout();
@@ -28,8 +44,6 @@ private:
     void initConnections();
 
     QGridLayout *mainLayout;
-    QFileSystemModel* model;
-    QTreeView *view;
 };
 
 

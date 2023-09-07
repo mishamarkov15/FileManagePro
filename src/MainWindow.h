@@ -14,6 +14,9 @@ Q_OBJECT;
 public:
     explicit MainWindow(QWidget *parent = nullptr);
 
+public slots:
+    void changeRightWidget();
+
 private:
     void initLayout();
 
@@ -29,6 +32,14 @@ private:
 
     QGridLayout *mainLayout;
     QSplitter *splitter;
+
+    void previewText();
+};
+
+namespace extensions {
+    const QVector<QString> TEXT_EXTENSIONS = {"cpp", "h", "py", "js", "html", "css", "txt", "md"};
+
+    bool isText(const QString& filepath);
 };
 
 

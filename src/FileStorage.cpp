@@ -8,7 +8,7 @@ FileStorage::FileStorage(QWidget *parent) :
         QWidget(parent),
         mainLayout(new QGridLayout()),
         model(new QFileSystemModel()),
-        view(new QTreeView()){
+        view(new MyTree()){
     initWidgets();
     initLayout();
     initConnections();

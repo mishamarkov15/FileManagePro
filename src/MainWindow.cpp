@@ -18,9 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 void MainWindow::initConnections() {
-//    connect(left->getButtonByID(1), &QPushButton::clicked, right, &TextFilePreview::displayTextContent);
-//    connect(left->getButtonByID(2), &QPushButton::clicked, right, &TextFilePreview::displayTextContent);
-//    connect(left->getButtonByID(3), &QPushButton::clicked, right, &TextFilePreview::displayTextContent);
+    connect(left->view, &MyTree::selectionChanged, this, &MainWindow::changeRightWidget);
 }
 
 void MainWindow::initWidgets() {
@@ -37,5 +35,22 @@ void MainWindow::initLayout() {
     centralWidget->setLayout(mainLayout);
 
     mainLayout->addWidget(splitter);
+}
+
+void MainWindow::previewText() {
+}
+
+void MainWindow::changeRightWidget() {
+    auto filepath = left->model->filePath(left->view->currentIndex());
+    if (extensions::isText(filepath)) {
+        QDebug d(QtMsgType::QtInfoMsg);
+        d << "I'm text!\n";
+    }
+}
+
+
+bool extensions::isText(const QString &filepath) {
+    QFileInfo fileInfo(filepath);
+    return TEXT_EXTENSIONS.contains(fileInfo.suffix());
 }
 
