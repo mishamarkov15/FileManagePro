@@ -44,7 +44,7 @@ void MainWindow::changeRightWidget() {
     auto filepath = left->model->filePath(left->view->currentIndex());
     if (extensions::isText(filepath)) {
         delete right;
-        right = new TextFilePreview();
+        right = new TextFilePreview(filepath);
         splitter->addWidget(right);
     } else if (extensions::isImage(filepath)) {
 

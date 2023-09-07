@@ -12,14 +12,12 @@
 #include <QPushButton>
 #include <QFile>
 #include <QMessageBox>
+#include <QFileInfo>
 
 class TextFilePreview : public QWidget {
 Q_OBJECT;
 public:
-    explicit TextFilePreview(QWidget *parent = nullptr);
-
-public slots:
-    void displayTextContent();
+    explicit TextFilePreview(const QString& filepath, QWidget *parent = nullptr);
 
 private:
     void initLayout();
@@ -33,6 +31,7 @@ private:
     QGridLayout *mainLayout;
     QLabel *filenameTitle;
     QTextEdit *content;
+    QString src_filepath;
 };
 
 

@@ -5,11 +5,12 @@
 #include "../headers/TextFilePreview.h"
 
 
-TextFilePreview::TextFilePreview(QWidget *parent) :
+TextFilePreview::TextFilePreview(const QString& filepath, QWidget *parent) :
         QWidget(parent),
         mainLayout(new QGridLayout()),
         filenameTitle(new QLabel()),
-        content(new QTextEdit()) {
+        content(new QTextEdit()),
+        src_filepath(filepath) {
     initWidgets();
     initLayout();
     initConnections();
@@ -28,30 +29,18 @@ void TextFilePreview::initStyles() {
 }
 
 void TextFilePreview::initWidgets() {
-    filenameTitle->setText("click button to preview file");
+    QFileInfo fileInfo(src_filepath);
+
+    filenameTitle->setText(fileInfo.fileName());
     filenameTitle->setAlignment(Qt::AlignCenter);
 
+    QFile f(src_filepath);
+    f.open(QIODevice::ReadOnly);
+    content->setText(f.readAll());
+    f.close();
     content->setReadOnly(true);
 }
 
 void TextFilePreview::initConnections() {
 
-}
-
-void TextFilePreview::displayTextContent() {
-    auto* senderButton = dynamic_cast<QPushButton*>(sender());
-
-    QFile file(senderButton->text());
-
-    filenameTitle->setText(file.fileName());
-
-    if(!file.open(QIODevice::ReadOnly)) {
-        QMessageBox::information(0, "error", file.errorString());
-    }
-
-    QTextStream in(&file);
-
-    content->setText(in.readAll());
-
-    file.close();
 }
