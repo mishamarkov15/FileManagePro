@@ -10,6 +10,7 @@ VideoFilePreview::VideoFilePreview(const QString &filepath, QWidget *parent) :
         filenameTitle(new QLabel()),
         player(new QMediaPlayer()),
         videoWidget(new QVideoWidget()),
+        audio(new QAudioOutput()),
         play_pause(new QPushButton()),
         PLAY_ICON(QPixmap("../assets/play.png")),
         PAUSE_ICON(QPixmap("../assets/pause.png")),
@@ -38,6 +39,7 @@ void VideoFilePreview::initWidgets() {
     player->setSource(QUrl::fromLocalFile(src_filepath));
 
     player->setVideoOutput(videoWidget);
+    player->setAudioOutput(audio);
 }
 
 void VideoFilePreview::initConnections() {

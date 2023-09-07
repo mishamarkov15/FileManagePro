@@ -10,13 +10,16 @@
 #include <QGridLayout>
 #include <QPushButton>
 #include <QtMultimedia/QMediaPlayer>
+#include <QtMultimedia/QAudioOutput>
 #include <QtMultimediaWidgets/QVideoWidget>
 
 class VideoFilePreview : public QWidget {
-    Q_OBJECT;
+Q_OBJECT;
 public:
-    explicit VideoFilePreview(const QString& filepath, QWidget* parent = nullptr);
+    explicit VideoFilePreview(const QString &filepath, QWidget *parent = nullptr);
+
 public slots:
+
     void VideoStateManage();
 
 private:
@@ -31,9 +34,10 @@ private:
     QGridLayout *mainLayout;
     QLabel *filenameTitle;
     QMediaPlayer *player;
+    QAudioOutput *audio;
     QVideoWidget *videoWidget;
     QString src_filepath;
-    QPushButton* play_pause;
+    QPushButton *play_pause;
 
     const QIcon PLAY_ICON;
     const QIcon PAUSE_ICON;
