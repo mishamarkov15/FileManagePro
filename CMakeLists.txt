@@ -11,11 +11,15 @@ find_package(Qt6 COMPONENTS
         Core
         Gui
         Widgets
+        Multimedia
+        MultimediaWidgets
         REQUIRED)
 
-add_executable(FileManagePro main.cpp src/MainWindow.cpp headers/MainWindow.h src/TextFilePreview.cpp headers/TextFilePreview.h src/FileStorage.cpp headers/FileStorage.h)
+add_executable(FileManagePro main.cpp src/MainWindow.cpp headers/MainWindow.h src/TextFilePreview.cpp headers/TextFilePreview.h src/FileStorage.cpp headers/FileStorage.h src/VideoFilePreview.cpp headers/VideoFilePreview.h)
 target_link_libraries(FileManagePro
         Qt::Core
         Qt::Gui
         Qt::Widgets
+        Qt::Multimedia
+        Qt::MultimediaWidgets
         )

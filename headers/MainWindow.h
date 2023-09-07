@@ -2,6 +2,7 @@
 #define FILEMANAGEPRO_MAINWINDOW_H
 
 #include "TextFilePreview.h"
+#include "VideoFilePreview.h"
 #include "FileStorage.h"
 #include <QMainWindow>
 #include <QGridLayout>
@@ -33,8 +34,6 @@ private:
 
     QGridLayout *mainLayout;
     QSplitter *splitter;
-
-    void previewText();
 };
 
 namespace extensions {

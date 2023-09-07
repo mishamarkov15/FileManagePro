@@ -37,8 +37,6 @@ void MainWindow::initLayout() {
     mainLayout->addWidget(splitter);
 }
 
-void MainWindow::previewText() {
-}
 
 void MainWindow::changeRightWidget() {
     auto filepath = left->model->filePath(left->view->currentIndex());
@@ -51,7 +49,9 @@ void MainWindow::changeRightWidget() {
     } else if (extensions::isAudio(filepath)) {
 
     } else if (extensions::isVideo(filepath)) {
-
+        delete right;
+        right = new VideoFilePreview(filepath);
+        splitter->addWidget(right);
     } else {
         delete right;
         right = new QWidget();
