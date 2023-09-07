@@ -19,4 +19,3 @@ target_link_libraries(FileManagePro
         Qt::Gui
         Qt::Widgets
         )
-

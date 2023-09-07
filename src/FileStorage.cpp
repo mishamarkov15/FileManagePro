@@ -26,9 +26,10 @@ void FileStorage::initStyles() {
 }
 
 void FileStorage::initWidgets() {
-    model->setRootPath("");
+    model->setRootPath(RootDirectoryPath);
 
     view->setModel(model);
+    view->setRootIndex(model->index(RootDirectoryPath));
 }
 
 void FileStorage::initConnections() {

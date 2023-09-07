@@ -11,6 +11,8 @@
 #include <QTreeView>
 #include <QPushButton>
 
+const QString RootDirectoryPath("/Users/mikhaiil/.EgorFileManager/");
+
 class FileStorage : public QWidget {
 Q_OBJECT;
 public:
