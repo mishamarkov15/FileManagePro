@@ -7,11 +7,13 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QFileInfo>
 #include <QGridLayout>
 #include <QPushButton>
 #include <QtMultimedia/QMediaPlayer>
 #include <QtMultimedia/QAudioOutput>
 #include <QtMultimediaWidgets/QVideoWidget>
+#include <QSlider>
 
 class VideoFilePreview : public QWidget {
 Q_OBJECT;
@@ -21,6 +23,8 @@ public:
 public slots:
 
     void VideoStateManage();
+
+    void UpdateSlider();
 
 private:
     void initLayout();
@@ -38,6 +42,7 @@ private:
     QVideoWidget *videoWidget;
     QString src_filepath;
     QPushButton *play_pause;
+    QSlider* videoSlider;
 
     const QIcon PLAY_ICON;
     const QIcon PAUSE_ICON;
