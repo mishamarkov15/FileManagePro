@@ -28,6 +28,10 @@ public slots:
 
     void SetVideoPosition();
 
+    void MuteUnmute();
+
+    void SetVolume();
+
 private:
     void initLayout();
 
@@ -44,10 +48,14 @@ private:
     QVideoWidget *videoWidget;
     QString src_filepath;
     QPushButton *play_pause;
+    QPushButton *mute_btn;
     QSlider* videoSlider;
+    QSlider* volumeSlider;
 
     const QIcon PLAY_ICON;
     const QIcon PAUSE_ICON;
+    const QIcon MUTED_ICON;
+    const QIcon UNMUTED_ICON;
 };
 
 
