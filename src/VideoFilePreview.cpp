@@ -53,6 +53,7 @@ void VideoFilePreview::initWidgets() {
 void VideoFilePreview::initConnections() {
     connect(play_pause, &QPushButton::clicked, this, &VideoFilePreview::VideoStateManage);
     connect(player, &QMediaPlayer::positionChanged, this, &VideoFilePreview::UpdateSlider);
+    connect(videoSlider, &QSlider::valueChanged, this, &VideoFilePreview::SetVideoPosition);
 }
 
 void VideoFilePreview::VideoStateManage() {
@@ -66,5 +67,13 @@ void VideoFilePreview::VideoStateManage() {
 }
 
 void VideoFilePreview::UpdateSlider() {
-    videoSlider->setValue(static_cast<qint64>((static_cast<double>(player->position()) / static_cast<double>(player->duration()) * 100)));
+    videoSlider->blockSignals(true);
+    videoSlider->setValue(static_cast<qint64>(
+            (static_cast<double>(player->position()) / static_cast<double>(player->duration()) * 100)));
+    videoSlider->blockSignals(false);
+}
+
+void VideoFilePreview::SetVideoPosition() {
+    player->setPosition(static_cast<qint64>(
+            (static_cast<double>(videoSlider->value()) / 100.0) * static_cast<long double>(player->duration())));
 }

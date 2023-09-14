@@ -26,6 +26,8 @@ public slots:
 
     void UpdateSlider();
 
+    void SetVideoPosition();
+
 private:
     void initLayout();
 
