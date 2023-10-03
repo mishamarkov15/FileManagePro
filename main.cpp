@@ -1,10 +1,16 @@
 #include <QApplication>
-#include "headers/MainWindow.h"
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <iostream>
+#include <QCryptographicHash>
+#include "headers/LoginWindow.h"
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
 
-    MainWindow w;
+    MainWindow mainWindow;
+
+    LoginWindow w(&mainWindow);
     w.show();
 
     return QApplication::exec();

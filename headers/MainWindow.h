@@ -19,6 +19,8 @@ public slots:
 
     void changeRightWidget();
 
+    void openAfterAuth();
+
 private:
     void initLayout();
 

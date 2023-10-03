@@ -59,6 +59,10 @@ void MainWindow::changeRightWidget() {
     }
 }
 
+void MainWindow::openAfterAuth() {
+    show();
+}
+
 
 bool extensions::isText(const QString &filepath) {
     QFileInfo fileInfo(filepath);

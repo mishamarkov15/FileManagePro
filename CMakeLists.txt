@@ -13,13 +13,15 @@ find_package(Qt6 COMPONENTS
         Widgets
         Multimedia
         MultimediaWidgets
+        Sql
         REQUIRED)
 
-add_executable(FileManagePro main.cpp src/MainWindow.cpp headers/MainWindow.h src/TextFilePreview.cpp headers/TextFilePreview.h src/FileStorage.cpp headers/FileStorage.h src/VideoFilePreview.cpp headers/VideoFilePreview.h)
+add_executable(FileManagePro main.cpp src/MainWindow.cpp headers/MainWindow.h src/TextFilePreview.cpp headers/TextFilePreview.h src/FileStorage.cpp headers/FileStorage.h src/VideoFilePreview.cpp headers/VideoFilePreview.h src/LoginWindow.cpp headers/LoginWindow.h)
 target_link_libraries(FileManagePro
         Qt::Core
         Qt::Gui
         Qt::Widgets
         Qt::Multimedia
         Qt::MultimediaWidgets
+        Qt::Sql
         )
