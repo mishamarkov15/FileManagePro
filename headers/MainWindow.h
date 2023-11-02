@@ -4,6 +4,7 @@
 #include "TextFilePreview.h"
 #include "VideoFilePreview.h"
 #include "FileStorage.h"
+#include "ImageFilePreview.h"
 #include <QMainWindow>
 #include <QGridLayout>
 #include <QWidget>

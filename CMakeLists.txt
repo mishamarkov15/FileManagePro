@@ -6,6 +6,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
+set(CMAKE_PREFIX_PATH "/home/neverloved/Qt/6.6.0/gcc_64")
 
 find_package(Qt6 COMPONENTS
         Core
@@ -16,7 +17,10 @@ find_package(Qt6 COMPONENTS
         Sql
         REQUIRED)
 
-add_executable(FileManagePro main.cpp src/MainWindow.cpp headers/MainWindow.h src/TextFilePreview.cpp headers/TextFilePreview.h src/FileStorage.cpp headers/FileStorage.h src/VideoFilePreview.cpp headers/VideoFilePreview.h src/LoginWindow.cpp headers/LoginWindow.h)
+add_executable(FileManagePro main.cpp src/MainWindow.cpp headers/MainWindow.h src/TextFilePreview.cpp headers/TextFilePreview.h src/FileStorage.cpp headers/FileStorage.h src/VideoFilePreview.cpp headers/VideoFilePreview.h src/LoginWindow.cpp headers/LoginWindow.h
+        src/ImageFilePreview.cpp
+        headers/ImageFilePreview.h
+)
 target_link_libraries(FileManagePro
         Qt::Core
         Qt::Gui

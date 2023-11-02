@@ -1,7 +1,3 @@
-//
-// Created by Михаил Марков on 07/09/2023.
-//
-
 #include "../headers/VideoFilePreview.h"
 
 VideoFilePreview::VideoFilePreview(const QString &filepath, QWidget *parent) :
@@ -38,8 +34,8 @@ void VideoFilePreview::initLayout() {
 }
 
 void VideoFilePreview::initStyles() {
-    filenameTitle->setAlignment(Qt::AlignCenter);
 
+    filenameTitle->setAlignment(Qt::AlignCenter);
     mainLayout->setColumnStretch(0, 1);
 }
 

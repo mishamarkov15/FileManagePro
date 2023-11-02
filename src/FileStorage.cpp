@@ -1,7 +1,3 @@
-//
-// Created by Михаил Марков on 17/08/2023.
-//
-
 #include "../headers/FileStorage.h"
 
 FileStorage::FileStorage(QWidget *parent) :
@@ -22,7 +18,7 @@ void FileStorage::initLayout() {
 }
 
 void FileStorage::initStyles() {
-
+    setMinimumSize(700,500);
 }
 
 void FileStorage::initWidgets() {

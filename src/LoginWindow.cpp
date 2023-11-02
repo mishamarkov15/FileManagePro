@@ -1,7 +1,3 @@
-//
-// Created by Михаил Марков on 03/10/2023.
-//
-
 #include "../headers/LoginWindow.h"
 
 LoginWindow::LoginWindow(MainWindow *windowToShow, QWidget *parent) :
@@ -34,6 +30,8 @@ void LoginWindow::initLayout() {
 }
 
 void LoginWindow::initStyles() {
+    setFixedSize(250,200);
+
 
 }
 

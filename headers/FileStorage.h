@@ -1,7 +1,3 @@
-//
-// Created by Михаил Марков on 17/08/2023.
-//
-
 #ifndef FILEMANAGEPRO_FILESTORAGE_H
 #define FILEMANAGEPRO_FILESTORAGE_H
 
@@ -11,7 +7,7 @@
 #include <QTreeView>
 #include <QPushButton>
 
-const QString RootDirectoryPath("/Users/mikhaiil/.EgorFileManager/");
+const QString RootDirectoryPath("/home/neverloved/.EgorFileManager/");
 
 class MyTree : public QTreeView {
 Q_OBJECT;

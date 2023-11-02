@@ -1,7 +1,3 @@
-//
-// Created by Михаил Марков on 03/10/2023.
-//
-
 #ifndef FILEMANAGEPRO_LOGINWINDOW_H
 #define FILEMANAGEPRO_LOGINWINDOW_H
 

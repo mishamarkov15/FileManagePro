@@ -1,7 +1,3 @@
-//
-// Created by Михаил Марков on 17/08/2023.
-//
-
 #include "../headers/MainWindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -27,7 +23,7 @@ void MainWindow::initWidgets() {
 }
 
 void MainWindow::initStyles() {
-
+    setMinimumSize(1500,500);
 }
 
 void MainWindow::initLayout() {
@@ -45,7 +41,9 @@ void MainWindow::changeRightWidget() {
         right = new TextFilePreview(filepath);
         splitter->addWidget(right);
     } else if (extensions::isImage(filepath)) {
-
+        delete right;
+        right = new ImageFilePreview(filepath);
+        splitter->addWidget(right);
     } else if (extensions::isAudio(filepath)) {
 
     } else if (extensions::isVideo(filepath)) {

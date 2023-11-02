@@ -1,7 +1,3 @@
-//
-// Created by Михаил Марков on 07/09/2023.
-//
-
 #ifndef FILEMANAGEPRO_VIDEOFILEPREVIEW_H
 #define FILEMANAGEPRO_VIDEOFILEPREVIEW_H
 
