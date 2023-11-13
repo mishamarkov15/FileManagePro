@@ -7,7 +7,7 @@
 #include <QTreeView>
 #include <QPushButton>
 
-const QString RootDirectoryPath("/home/neverloved/.EgorFileManager/");
+const QString RootDirectoryPath("/Users/mikhaiil/.EgorFileManager/");
 
 class MyTree : public QTreeView {
 Q_OBJECT;
