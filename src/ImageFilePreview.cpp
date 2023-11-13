@@ -6,13 +6,14 @@ ImageFilePreview::ImageFilePreview(const QString &filepath, QWidget *parent) :
     filenameTitle(new QLabel()),
     src_filepath(filepath),
     CopyBtn(new QPushButton("Copy Image")),
-    Img(new QLabel())
+    Img(new QLabel()),
+    clipboard(QGuiApplication::clipboard())
 {
     initWidgets();
     initLayout();
     initStyles();
     initConnections();
-    show();
+    setPhoto();
 }
 
 void ImageFilePreview::initLayout() {
@@ -39,7 +40,7 @@ void ImageFilePreview::initWidgets() {
     filenameTitle->setText(fileInfo.baseName());
 }
 
-void ImageFilePreview::show() {
+void ImageFilePreview::setPhoto() {
     QPixmap myPixmap(src_filepath);
     Img->setPixmap(myPixmap);
     Img->setScaledContents(true);
@@ -50,8 +51,6 @@ void ImageFilePreview::show() {
     Img->setFixedHeight((factor * Img->pixmap().height())/1.7);
 }
 
-void ImageFilePreview::CopyPhoto() {
-    QClipboard *clip;
-    clip->clear();
-    clip->pixmap();
+inline void ImageFilePreview::CopyPhoto() {
+    clipboard->setImage(Img->pixmap().toImage());
 }
