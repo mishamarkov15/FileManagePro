@@ -23,7 +23,7 @@ void MainWindow::initWidgets() {
 }
 
 void MainWindow::initStyles() {
-    setMinimumSize(1500,500);
+    setMinimumSize(1500, 500);
 }
 
 void MainWindow::initLayout() {
@@ -36,25 +36,19 @@ void MainWindow::initLayout() {
 
 void MainWindow::changeRightWidget() {
     auto filepath = left->model->filePath(left->view->currentIndex());
+    delete right;
     if (extensions::isText(filepath)) {
-        delete right;
         right = new TextFilePreview(filepath);
-        splitter->addWidget(right);
     } else if (extensions::isImage(filepath)) {
-        delete right;
         right = new ImageFilePreview(filepath);
-        splitter->addWidget(right);
     } else if (extensions::isAudio(filepath)) {
-
+        right = new AudioFilePreview(filepath);
     } else if (extensions::isVideo(filepath)) {
-        delete right;
         right = new VideoFilePreview(filepath);
-        splitter->addWidget(right);
     } else {
-        delete right;
         right = new QWidget();
-        splitter->addWidget(right);
     }
+    splitter->addWidget(right);
 }
 
 void MainWindow::openAfterAuth() {
