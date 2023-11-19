@@ -15,6 +15,9 @@ Q_OBJECT;
 public:
     explicit TextFilePreview(const QString& filepath, QWidget *parent = nullptr);
 
+private slots:
+    void colorchange();
+
 private:
     void initLayout();
 
@@ -24,10 +27,13 @@ private:
 
     void initConnections();
 
+    QString colorStatus;
+
     QGridLayout *mainLayout;
     QLabel *filenameTitle;
     QTextEdit *content;
     QString src_filepath;
+    QPushButton* color_btn;
 };
 
 
