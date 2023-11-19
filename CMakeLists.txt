@@ -20,8 +20,6 @@ find_package(Qt6 COMPONENTS
 add_executable(FileManagePro main.cpp src/MainWindow.cpp headers/MainWindow.h src/TextFilePreview.cpp headers/TextFilePreview.h src/FileStorage.cpp headers/FileStorage.h src/VideoFilePreview.cpp headers/VideoFilePreview.h src/LoginWindow.cpp headers/LoginWindow.h
         src/ImageFilePreview.cpp
         headers/ImageFilePreview.h
-        src/AudioFilePreview.cpp
-        src/AudioFilePreview.h
 )
 target_link_libraries(FileManagePro
         Qt::Core

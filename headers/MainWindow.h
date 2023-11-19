@@ -5,6 +5,7 @@
 #include "VideoFilePreview.h"
 #include "FileStorage.h"
 #include "ImageFilePreview.h"
+#include "AudioFilePreview.h"
 #include <QMainWindow>
 #include <QGridLayout>
 #include <QWidget>
@@ -40,10 +41,10 @@ private:
 };
 
 namespace extensions {
-    const QVector<QString> TEXT_EXTENSIONS = {"cpp", "h", "py", "js", "html", "css", "txt", "md"};
+    const QVector<QString> TEXT_EXTENSIONS = {"cpp", "h", "py", "js", "html", "css", "txt", "md", "ipynb", "java", "js"};
     const QVector<QString> IMAGE_EXTENSIONS = {"jpg", "jpeg", "png", "bmp", "heic", "webp", "svg"};
     const QVector<QString> AUDIO_EXTENSIONS = {"mp3", "wav"};
-    const QVector<QString> VIDEO_EXTENSIONS = {"mp4", "mov", "mpeg", "mpg"};
+    const QVector<QString> VIDEO_EXTENSIONS = {"mp4", "mov", "mpeg", "mpg", "mkv"};
 
     bool isText(const QString &filepath);
 

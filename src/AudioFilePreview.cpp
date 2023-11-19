@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 #include "AudioFilePreview.h"
+=======
+#include "../headers/AudioFilePreview.h"
+
+>>>>>>> origin/master
 
 AudioFilePreview::AudioFilePreview(const QString &filepath, QWidget *parent) :
         QWidget(parent),
@@ -15,8 +20,12 @@ AudioFilePreview::AudioFilePreview(const QString &filepath, QWidget *parent) :
         PAUSE_ICON(QPixmap("../assets/pause.png")),
         MUTED_ICON(QPixmap("../assets/mute.png")),
         UNMUTED_ICON(QPixmap("../assets/unmute.png")),
+<<<<<<< HEAD
         src_filepath(filepath)
 {
+=======
+        src_filepath(filepath) {
+>>>>>>> origin/master
     initWidgets();
     initLayout();
     initStyles();
@@ -35,6 +44,7 @@ void AudioFilePreview::initLayout() {
 }
 
 void AudioFilePreview::initStyles() {
+<<<<<<< HEAD
     filenameTitle->setAlignment(Qt::AlignCenter);
     mainLayout->setColumnStretch(0,1);
 }
@@ -46,11 +56,32 @@ void AudioFilePreview::initWidgets() {
     QFileInfo fileInfo(src_filepath);
     filenameTitle->setText(fileInfo.baseName());
 
+=======
+
+    filenameTitle->setAlignment(Qt::AlignCenter);
+    mainLayout->setColumnStretch(0, 1);
+}
+
+void AudioFilePreview::initWidgets() {
+    // buttons
+    play_pause->setIcon(PLAY_ICON);
+    mute_btn->setIcon(UNMUTED_ICON);
+
+    // titles
+    QFileInfo fileInfo(src_filepath);
+    filenameTitle->setText(fileInfo.baseName());
+
+    // audios
+>>>>>>> origin/master
     player->setSource(QUrl::fromLocalFile(src_filepath));
     player->setAudioOutput(audio);
 
     audio->setVolume(0.2);
 
+<<<<<<< HEAD
+=======
+    // sliders
+>>>>>>> origin/master
     audioSlider->setMinimum(0);
     audioSlider->setValue(0);
     audioSlider->setMaximum(100);

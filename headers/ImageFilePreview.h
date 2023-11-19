@@ -2,6 +2,10 @@
 #define FILEMANAGEPRO_IMAGEFILEPREVIEW_H
 
 #include "MainWindow.h"
+#include <QMimeData>
+#include <QClipboard>
+#include <QImage>
+#include <QGuiApplication>
 
 class ImageFilePreview : public QWidget {
     Q_OBJECT;
@@ -16,15 +20,16 @@ private:
 
     void initConnections();
 
-    void show();
+    void setPhoto();
 
     QGridLayout *mainLayout;
     QLabel *filenameTitle;
     QString src_filepath;
     QLabel *Img;
     QPushButton *CopyBtn;
+    QClipboard* clipboard;
 private slots:
-    void CopyPhoto();
+    inline void CopyPhoto();
 };
 
 

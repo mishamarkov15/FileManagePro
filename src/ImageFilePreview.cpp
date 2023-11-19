@@ -6,21 +6,22 @@ ImageFilePreview::ImageFilePreview(const QString &filepath, QWidget *parent) :
     filenameTitle(new QLabel()),
     src_filepath(filepath),
     CopyBtn(new QPushButton("Copy Image")),
-    Img(new QLabel())
+    Img(new QLabel()),
+    clipboard(QGuiApplication::clipboard())
 {
     initWidgets();
+    setPhoto();
     initLayout();
     initStyles();
     initConnections();
-    show();
 }
 
 void ImageFilePreview::initLayout() {
     setLayout(mainLayout);
 
     mainLayout->addWidget(filenameTitle, 0, 0, 1, 9);
-    mainLayout->addWidget(Img, 2, 0, 5, 9);
-    mainLayout->addWidget(CopyBtn, 7, 7, 1, 1);
+    mainLayout->addWidget(Img, 1, 0, 5, 9);
+    mainLayout->addWidget(CopyBtn, 6, 8, 1, 1);
 
 }
 
@@ -31,7 +32,6 @@ void ImageFilePreview::initConnections() {
 void ImageFilePreview::initStyles() {
     filenameTitle->setAlignment(Qt::AlignCenter);
     Img->setAlignment(Qt::AlignCenter);
-    mainLayout->setColumnStretch(0, 1);
 }
 
 void ImageFilePreview::initWidgets() {
@@ -39,19 +39,11 @@ void ImageFilePreview::initWidgets() {
     filenameTitle->setText(fileInfo.baseName());
 }
 
-void ImageFilePreview::show() {
-    QPixmap myPixmap(src_filepath);
-    Img->setPixmap(myPixmap);
-    Img->setScaledContents(true);
-    int pixW = myPixmap.width();
-    int ImgW = Img->width();
-    double factor = double(ImgW)/pixW;
-    Img->setFixedWidth((factor * Img->pixmap().width())/1.7);
-    Img->setFixedHeight((factor * Img->pixmap().height())/1.7);
+void ImageFilePreview::setPhoto() {
+    Img->setPixmap(QPixmap(src_filepath).scaled(Img->width(), Img->height(), Qt::KeepAspectRatio,Qt::SmoothTransformation));
+
 }
 
-void ImageFilePreview::CopyPhoto() {
-    QClipboard *clip;
-    clip->clear();
-    clip->pixmap();
+inline void ImageFilePreview::CopyPhoto() {
+    clipboard->setImage(Img->pixmap().toImage());
 }
